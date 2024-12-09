@@ -4,15 +4,83 @@ body {
   overflow-x: hidden;
 }
 
-
 * {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
 }
 
 a {
-  color: inherit;
   text-decoration: none;
 }
+
+h2 {
+  color: $darkBlue;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+
+  // MEDIA QUERIES ------------------------------------------------------
+  @media (max-width: 480px) {
+    font-size: 1.875rem;
+    margin-bottom: 16px;
+  }
+}
+
+h3 {
+  color: $darkBlue;
+  font-size: 1.5rem;
+  font-weight: 700;
+
+  // MEDIA QUERIES ------------------------------------------------------
+  @media (max-width: 480px) {
+    font-size: 1.375rem;
+  }
+}
+
+label {
+  font-size: 1rem;
+  color: $darkBlue;
+}
+
+.btn {
+  background: $orange;
+  color: $white;
+  font-weight: 700;
+  font-size: 1.125rem;
+  text-decoration: none;
+  border-radius: 8px;
+  padding: 16px 32px;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background: $lightBlue;
+    color: $white;
+  }
+
+  @media (max-width: 700px) {
+    &:hover {
+      background-color: $orange;
+    }
+  }
+}
+
+.lead {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 150%;
+  color: $black;
+
+  // GENERAL FONT SIZE MEDIA QUERIES ------------------------------------------------------
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
+}
+
+
+
+
+
 

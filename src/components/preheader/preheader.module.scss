@@ -58,8 +58,8 @@
 
   // MEDIA QUERIES -------------------------------
   @media (max-width: 920px) {
-    .preheader-content {
-      @include widthGeneral480px;
+    .preheaderContent {
+      @include widthGeneralFrom920px;
 
       .contact {
         justify-content: space-between;
@@ -72,8 +72,8 @@
   }
 
   @media (max-width: 480px) {
-    .preheader-content {
-      @include widthGeneral480px;
+    .preheaderContent {
+
       .contact {
         gap: 2%;
       }
