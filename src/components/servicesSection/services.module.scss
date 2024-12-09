@@ -1,0 +1,86 @@
+.servicesSection {
+  @include widthGeneral;
+  margin: 10% auto;
+
+  .interBoxes {
+    margin: 40px 0 96px 0;
+    display: grid;
+    grid-template-columns: 22% 22% 22% 22%;
+    gap: 4%;
+    justify-self: start;
+
+    h3 {
+      margin: 16px 0 8px 0;
+    }
+
+    p {
+      line-height: 180%;
+      font-size: 1.125rem;
+
+      span {
+        color: $lightBlue;
+      }
+    }
+
+    br {
+      @media (max-width: 800px) {
+        display: none;
+      }
+    }
+
+    // MEDIA QUERIES ------------------------------------------------------
+    @media (max-width: 800px) {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      margin: 32px 0 40px 0;
+    }
+  }
+
+  .downContainer {
+    display: grid;
+    grid-template-columns: 52% 48%;
+
+    p {
+      width: 80%;
+    }
+  }
+
+  // MEDIA QUERIES ---------------------------------------
+  @media (max-width: 800px) {
+    @include widthGeneralFrom920px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin: 64px auto;
+
+    .downContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+
+      .lead {
+        width: 100%;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .upContainer {
+
+      .interBoxes {
+        margin-bottom: 16px;
+        
+        p {
+          font-size: 1rem;
+          line-height: 150%;
+        }
+
+        img {
+          width: 64px;
+          height: 64px;
+        }
+      }
+    }
+  }
+}
