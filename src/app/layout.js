@@ -1,18 +1,16 @@
-import localFont from "next/font/local";
-import "./globals.scss";
+import { Cabin } from "next/font/google";
+import "../styles/globals.scss";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
+const cabin = Cabin({ subsets: ['latin'] })
+
+
 
 
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable}`}>
+      <body className={cabin.className}>
         {children}
       </body>
     </html>
