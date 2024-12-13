@@ -1,0 +1,54 @@
+.section {
+  min-height: 40vh;
+  display: grid;
+  grid-template-columns: 50% 50%;
+
+  .aboutLeft {
+    background: $darkBlue;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .aboutRight {
+    background: $darkBlue;
+    color: $white;
+    padding: 96px 104px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h2 {
+      color: $white;
+    }
+
+    p {
+      line-height: 180%;
+      font-size: 1.125rem;
+    }
+  }
+
+// MEDIA QUERIES ------------------------------------------------------
+  @media (max-width: 920px) {
+    display: flex;
+    flex-direction: column;
+
+    .about-right {
+      padding: 56px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .about-right {
+      padding: 64px 16px;
+
+      p {
+        font-size: 1rem;
+      }
+    }
+
+  }
+}
