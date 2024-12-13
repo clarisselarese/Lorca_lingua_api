@@ -1,0 +1,99 @@
+.footer {
+  border: 1.5px solid $grey;
+  color: $black;
+
+  .footerContainer {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    @include widthGeneral;
+    margin-top: 64px;
+    margin-bottom: 64px;
+
+    a {
+      text-decoration: none;
+      color: $black;
+    }
+
+    .emailFooter {
+      margin: 60px 0 16px 0;
+
+      .arobase {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    }
+
+    .footerRight {
+      justify-self: end;
+
+      .linkedin {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        line-height: 150%;
+
+        .linkedinIcon {
+          font-size: 16px;
+          color: $orange;
+        }
+      }
+
+      .legalContainer {
+        margin-top: 64px;
+
+        .legalGroup {
+          display: flex;
+          gap: 48px;
+          margin-top: 24px;
+        }
+      }
+    }
+  }
+
+  // MEDIA QUERIES -------------------------------------
+  @media (max-width: 600px) {
+    .footerContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .footerLeft {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .footerRight {
+        .linkedin {
+          justify-content: center;
+          margin-top: 16px;
+          gap: 16px;
+
+          br {
+            display: none;
+          }
+
+          i {
+            font-size: 32px;
+          }
+        }
+
+        .legalContainer {
+          margin-top: 56px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          .legalGroup {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+          }
+        }
+      }
+    }
+  }
+}
