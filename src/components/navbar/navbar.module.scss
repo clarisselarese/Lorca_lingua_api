@@ -1,10 +1,11 @@
 .navbar {
   @include widthGeneral;
   padding: 24px 0;
-  min-height: $navbar-height;
+  // min-height: $navbar-height;
   display: grid;
   grid-template-columns: 30% 70%;
   align-items: center;
+  transition: top 0.3s ease, box-shadow 0.3s ease;
 
   img {
     justify-self: start;
@@ -49,16 +50,35 @@
     }
   }
 
+  &.sticky {
+    width: 100%;
+    position: fixed;
+    min-height: $navbar-height; 
+    padding: 24px 108px 24px;
+    top: 0;
+    z-index: 100;
+    background: white;
+    box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  &.hide {
+    top: 0; // Cache la navbar quand on défile vers le bas
+  }
+
+  &.show {
+    top: 0; // Affiche la navbar quand on défile vers le haut
+  }
+
   // MEDIA QUERIES -------------------------------------
   @media (max-width: 920px) {
     @include widthGeneralFrom920px;
     padding: 24px 0;
-    
+
     ul {
       display: none;
     }
 
-    .language-mobile {
+    .languageMobile {
       display: none;
     }
   }
