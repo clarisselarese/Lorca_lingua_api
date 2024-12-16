@@ -1,4 +1,3 @@
-
 'use client'
 
 import { useState } from "react";
@@ -59,7 +58,8 @@ export default function Form() {
     }
 
     // Validation du numéro de téléphone
-    const regexFrenchNumber = /^(\+33|0)(\s?\d{1}\s?|\s?\d{2}\s?)(\d{2}\s?){4}$/;
+    const regexFrenchNumber =
+      /^(\+33|0)(\s?\d{1}\s?|\s?\d{2}\s?)(\d{2}\s?){4}$/;
     const regexInternationalNumber =
       /^\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\d{8,14}$/;
 
@@ -74,6 +74,14 @@ export default function Form() {
     // Validation du message
     if (!formData.message) {
       newErrors.message = errorMessages.messageRequired;
+    }
+
+    //print si c'est urgent
+
+    if (formData.urgent === "yes") {
+      console.log("C'est une demande urgente !");
+    } else {
+      console.log("Ce n'est pas une demande urgente.");
     }
 
     // Validation des conditions
@@ -111,128 +119,141 @@ export default function Form() {
 
   return (
     <section className={styles.form}>
-    <h2>Besoin d’un devis ou d’informations ?</h2>
-    <div className={styles.formContainer}>
-      <form onSubmit={handleSubmit} noValidate>
-        <div className={styles.formRow}>
-          <div className={styles.formItem}>
-            <label htmlFor="surname">
-              Nom<span>*</span>
-            </label>
-            <input
-              name="surname"
-              type="text"
-              id="surname"
-              value={formData.surname}
-              onChange={handleChange}
-              required
-            />
-            <div className={styles.formError}>{errors.surname}</div>
-          </div>
-          <div className={styles.formItem}>
-            <label htmlFor="name">
-              Prénom<span>*</span>
-            </label>
-            <input
-              name="name"
-              type="text"
-              id="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-            <div className={styles.formError}>{errors.name}</div>
-          </div>
-        </div>
-
-        <div className={styles.formItem}>
-          <label htmlFor="email">
-            E-mail<span>*</span>
-          </label>
-          <input
-            name="email"
-            type="email"
-            id="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-          <div className={styles.formError}>{errors.email}</div>
-        </div>
-
-        <div className={styles.formItem}>
-          <label htmlFor="phoneNumber">Téléphone</label>
-          <input
-            name="phoneNumber"
-            type="tel"
-            id="phoneNumber"
-            value={formData.phoneNumber}
-            onChange={handleChange}
-          />
-          <div className={styles.formError}>{errors.phoneNumber}</div>
-        </div>
-
-        
-
-        <div className={styles.formItem}>
-          <label htmlFor="message">
-          Joindre un document
-          </label>
-          <Dropzone/>
-        </div>
-
-
-
-        <div className={styles.formItem}>
-          <label htmlFor="message">
-            Votre message<span>*</span>
-          </label>
-          <textarea
-            name="message"
-            id="message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-          ></textarea>
-          <div className={styles.formError}>{errors.message}</div>
-        </div>
-        
-
-        <div className={styles.formItem}>
-          <label htmlFor={styles.request}>S&apos;agit-il d&apos;une demande urgente?</label>
-          <div className={styles.radioGroup}>
-            <div className={styles.yes}>
-              <input type="radio" id="yes" name="urgent" value="yes" />
-              <label className={styles.radio} htmlFor="yes">Oui</label>
+      <h2>Besoin d’un devis ou d’informations ?</h2>
+      <div className={styles.formContainer}>
+        <form onSubmit={handleSubmit} noValidate>
+          <div className={styles.formRow}>
+            <div className={styles.formItem}>
+              <label htmlFor="surname">
+                Nom<span>*</span>
+              </label>
+              <input
+                name="surname"
+                type="text"
+                id="surname"
+                value={formData.surname}
+                onChange={handleChange}
+                required
+              />
+              <div className={styles.formError}>{errors.surname}</div>
             </div>
-            <div className={styles.no}>
-              <input type="radio" id="no" name="urgent" value="no" />
-              <label className={styles.radio} htmlFor="no">Non</label>
+            <div className={styles.formItem}>
+              <label htmlFor="name">
+                Prénom<span>*</span>
+              </label>
+              <input
+                name="name"
+                type="text"
+                id="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+              <div className={styles.formError}>{errors.name}</div>
             </div>
           </div>
-        </div>
-        
-        <div className={styles.formItem}>
-          <label className={styles.checkbox} htmlFor="conditions">
+
+          <div className={styles.formItem}>
+            <label htmlFor="email">
+              E-mail<span>*</span>
+            </label>
             <input
-              type="checkbox"
-              name="conditions"
-              id="conditions"
-              checked={formData.conditions}
+              name="email"
+              type="email"
+              id="email"
+              value={formData.email}
               onChange={handleChange}
               required
             />
-            J’accepte que mes données soient collectées et utilisées
-            conformément à la politique de confidentialité.
-          </label>
-          <div className={styles.formError}>{errors.conditions}</div>
-        </div>
+            <div className={styles.formError}>{errors.email}</div>
+          </div>
 
-        <button className="btn btn-form" type="submit">
-          Envoyer ma demande
-        </button>
-      </form>
-    </div>
-  </section>
+          <div className={styles.formItem}>
+            <label htmlFor="phoneNumber">Téléphone</label>
+            <input
+              name="phoneNumber"
+              type="tel"
+              id="phoneNumber"
+              value={formData.phoneNumber}
+              onChange={handleChange}
+            />
+            <div className={styles.formError}>{errors.phoneNumber}</div>
+          </div>
+
+          <div className={styles.formItem}>
+            <label htmlFor="message">Joindre un document</label>
+            <Dropzone />
+          </div>
+
+          <div className={styles.formItem}>
+            <label htmlFor="message">
+              Votre message<span>*</span>
+            </label>
+            <textarea
+              name="message"
+              id="message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+            ></textarea>
+            <div className={styles.formError}>{errors.message}</div>
+          </div>
+
+          <div className={styles.formItem}>
+            <label htmlFor={styles.request}>
+              S&apos;agit-il d&apos;une demande urgente?
+            </label>
+            <div className={styles.radioGroup}>
+              <div className={styles.yes}>
+                <input
+                  type="radio"
+                  id="yes"
+                  name="urgent"
+                  value="yes"
+                  checked={formData.urgent === "yes"} 
+                  onChange={handleChange}
+                />
+                <label className={styles.radio} htmlFor="yes">
+                  Oui
+                </label>
+              </div>
+              <div className={styles.no}>
+                <input
+                  type="radio"
+                  id="no"
+                  name="urgent"
+                  value="no"
+                  checked={formData.urgent === "no"} 
+                  onChange={handleChange}
+                />
+                <label className={styles.radio} htmlFor="no">
+                  Non
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.formItem}>
+            <label className={styles.checkbox} htmlFor="conditions">
+              <input
+                type="checkbox"
+                name="conditions"
+                id="conditions"
+                checked={formData.conditions}
+                onChange={handleChange}
+                required
+              />
+              J’accepte que mes données soient collectées et utilisées
+              conformément à la politique de confidentialité.
+            </label>
+            <div className={styles.formError}>{errors.conditions}</div>
+          </div>
+
+          <button className="btn btn-form" type="submit">
+            Envoyer ma demande
+          </button>
+        </form>
+      </div>
+    </section>
   );
 }
