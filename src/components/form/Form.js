@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 import styles from "./form.module.scss";
+import Dropzone from "./Dropzone";
 
 export default function Form() {
   const [formData, setFormData] = useState({
@@ -171,6 +172,17 @@ export default function Form() {
           <div className={styles.formError}>{errors.phoneNumber}</div>
         </div>
 
+        
+
+        <div className={styles.formItem}>
+          <label htmlFor="message">
+          Joindre un document
+          </label>
+          <Dropzone/>
+        </div>
+
+
+
         <div className={styles.formItem}>
           <label htmlFor="message">
             Votre message<span>*</span>
@@ -184,6 +196,22 @@ export default function Form() {
           ></textarea>
           <div className={styles.formError}>{errors.message}</div>
         </div>
+        
+
+        <div className={styles.formItem}>
+          <label htmlFor={styles.request}>S&apos;agit-il d&apos;une demande urgente?</label>
+          <div className={styles.radioGroup}>
+            <div className={styles.yes}>
+              <input type="radio" id="yes" name="urgent" value="yes" />
+              <label className={styles.radio} htmlFor="yes">Oui</label>
+            </div>
+            <div className={styles.no}>
+              <input type="radio" id="no" name="urgent" value="no" />
+              <label className={styles.radio} htmlFor="no">Non</label>
+            </div>
+          </div>
+        </div>
+        
         <div className={styles.formItem}>
           <label className={styles.checkbox} htmlFor="conditions">
             <input
