@@ -14,7 +14,6 @@ export default function Navbar() {
 
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
-    console.log(currentScrollY)
 
     if (currentScrollY > 100 && window.innerWidth > 920) {
       setIsSticky(true);
