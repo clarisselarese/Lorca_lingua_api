@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./hero.module.scss";
 
 export default function Hero() {
@@ -14,9 +15,9 @@ export default function Hero() {
             français, anglais et espagnol. Basée à Strasbourg, je me déplace
             selon vos besoins pour des solutions linguistiques sur mesure.
           </p>
-          <a className="btn" href="#form-section">
+          <Link className="btn" href="#form-section">
             Je demande mon devis
-          </a>
+          </Link>
         </div>
       </div>
     </>

@@ -10,7 +10,7 @@ export default function Services() {
     <section className={styles.servicesSection}>
     <div className={styles.upContainer}>
       <h2>Services d&apos;interprétation</h2>
-      <p className="lead">
+      <p className="lead-services">
         Réunion professionnelle, sortie culturelle, rendez-vous
         administratif, événement multilingue ? J&apos;interprète en espagnol,
         français et anglais pour garantir le succès de vos échanges
